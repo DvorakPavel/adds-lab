@@ -1,0 +1,17 @@
+# Virtual machine artifacts — never belong in git
+*.iso
+*.vdi
+*.vhd
+*.vhdx
+*.ova
+*.vbox
+*.vbox-prev
+
+# Staging area for un-redacted output — review before moving into evidence/
+_raw/
+
+# Windows / editor noise
+Thumbs.db
+desktop.ini
+.vscode/
+.DS_Store
