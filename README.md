@@ -22,10 +22,4 @@ API automation
 | `evidence/` | One folder per task — PowerShell transcripts, `dcdiag` and `repadmin` output, GPO and RSoP reports, LDIF exports |
 | `scripts/` | Reusable PowerShell. Commands run once stay inline in the note; anything run again lives here |
 
-## Lab Tasks
 
-### Phase 0 — Lab foundation
-
-| # | Task | Focus |
-|---|---|---|
-| 00 | [Project setup](notes/00-project-setup.md) | Repository, structure, documentation and evidence conventions |
