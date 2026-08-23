@@ -22,4 +22,9 @@ API automation
 | `evidence/` | One folder per task — PowerShell transcripts, `dcdiag` and `repadmin` output, GPO and RSoP reports, LDIF exports |
 | `scripts/` | Reusable PowerShell. Commands run once stay inline in the note; anything run again lives here |
 
+Every note carries a **References** line listing the Microsoft Learn documentation the task was
+validated against.
 
+## Lab Tasks
+
+*Tasks are added here as they are completed.*
