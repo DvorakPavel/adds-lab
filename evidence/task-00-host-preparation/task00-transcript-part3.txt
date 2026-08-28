@@ -1,0 +1,43 @@
+**********************
+PowerShell transcript start
+Start time: 20260828172920
+Username: DESKTOP-IS7P2C8\Pavel
+RunAs User: DESKTOP-IS7P2C8\Pavel
+Configuration Name: 
+Machine: DESKTOP-IS7P2C8 (Microsoft Windows NT 10.0.26200.0)
+Host Application: E:\Apps_INSTAL\7\pwsh.dll
+Process ID: 2036
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Pavel\Desktop\task00-transcript-part3.txt
+PS C:\Windows\System32> Get-CimInstance Win32_ComputerSystem | Select-Object HypervisorPresent
+
+HypervisorPresent
+-----------------
+             True
+
+PS C:\Windows\System32> Get-CimInstance Win32_Processor | Select-Object Name, SecondLevelAddressTranslationExtensions, VirtualizationFirmwareEnabled
+
+Name                                            SecondLevelAddressTranslationExtensions VirtualizationFirmwareEnabled
+----                                            --------------------------------------- -----------------------------
+AMD Ryzen 7 5700X 8-Core Processor                                                False                          True
+
+PS C:\Windows\System32> bcdedit /set hypervisorlaunchtype off
+The operation completed successfully.
+PS C:\Windows\System32> bcdedit /set vsmlaunchtype off
+The operation completed successfully.
+PS C:\Windows\System32> reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard" /v EnableVirtualizationBasedSecurity /t REG_DWORD /d 0 /f
+The operation completed successfully.
+PS C:\Windows\System32> bcdedit /enum "{current}" | Select-String "hypervisorlaunchtype|vsmlaunchtype"
+
+hypervisorlaunchtype    Off
+vsmlaunchtype           Off
+

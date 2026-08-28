@@ -1,0 +1,56 @@
+**********************
+PowerShell transcript start
+Start time: 20260828164622
+Username: DESKTOP-IS7P2C8\Pavel
+RunAs User: DESKTOP-IS7P2C8\Pavel
+Configuration Name: 
+Machine: DESKTOP-IS7P2C8 (Microsoft Windows NT 10.0.26200.0)
+Host Application: E:\Apps_INSTAL\7\pwsh.dll
+Process ID: 6996
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\Pavel\Desktop\task00-transcript.txt
+PS C:\Windows\System32> Get-CimInstance Win32_Processor |
+  Select-Object Name, SecondLevelAddressTranslationExtensions, VirtualizationFirmwareEnabled
+
+Name                                            SecondLevelAddressTranslationExtensions VirtualizationFirmwareEnabled
+----                                            --------------------------------------- -----------------------------
+AMD Ryzen 7 5700X 8-Core Processor                                                False                          True
+
+PS C:\Windows\System32> Get-CimInstance Win32_ComputerSystem | Select-Object HypervisorPresent
+
+HypervisorPresent
+-----------------
+             True
+
+PS C:\Windows\System32> & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" --version
+7.2.8r173730
+PS C:\Windows\System32> Get-Volume | Where-Object DriveLetter -in 'C','E' |
+  Select-Object DriveLetter, FileSystem, @{n='FreeGB';e={[math]::Round($_.SizeRemaining/1GB,1)}}
+
+DriveLetter FileSystem FreeGB
+----------- ---------- ------
+          E NTFS       803.80
+          C NTFS       446.00
+
+PS C:\Windows\System32> .\Coreinfo.exe -f -accepteula
+.\Coreinfo.exe: The term '.\Coreinfo.exe' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+.\Coreinfo.exe: The term '.\Coreinfo.exe' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+PS C:\Windows\System32> CommandInvocation(Get-Command): "Get-Command"
+>> ParameterBinding(Get-Command): name="UseFuzzyMatching"; value="True"
+>> ParameterBinding(Get-Command): name="FuzzyMinimumDistance"; value="1"
+>> ParameterBinding(Get-Command): name="Name"; value=".\Coreinfo.exe"
+>> CommandInvocation(Select-Object): "Select-Object"
+>> ParameterBinding(Select-Object): name="First"; value="5"
+>> ParameterBinding(Select-Object): name="Unique"; value="True"
+>> ParameterBinding(Select-Object): name="ExpandProperty"; value="Name"
